@@ -2,38 +2,34 @@ package ObserverApp;
 
 import java.util.ArrayList;
 
-class Producto implements IProducto{
-    private ArrayList<IObservador> observadores;
+class Producto extends Observado{
     private String nombre; 
     private int cantidad;
     
     public Producto(String nombre, int cantidad){
-        observadores = new ArrayList<>();
-
+        super();
         this.nombre = nombre;
         this.cantidad = cantidad;
     }
 
-    public void setCantidad(int cantidad){
+    public void setCantidadStock(int cantidad){
         this.cantidad = cantidad;
-        nofiticar();
+        notificar();
     }
     
-    public void nofiticar(){
+    @Override
+    void notificar() {
         for(IObservador ob : observadores){
             ob.update(this);
         }
-    }
+    }   
 
-     public void addObservador(Observador observador){
-         this.observadores.add(observador);
-     }
-
-     public int getCantidad(){
-         return cantidad;
-     }
-
-     public String getNombre(){
+    public String getNombre(){
         return nombre;
     }
+
+    public int getCantidad(){
+        return cantidad;
+    } 
+     
 }
