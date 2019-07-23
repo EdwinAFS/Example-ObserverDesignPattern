@@ -1,4 +1,4 @@
-package app;
+package ObserverApp;
 
 class Proveedor implements IObservador {
     String nombre;
