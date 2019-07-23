@@ -1,4 +1,4 @@
-package app;
+package ObserverApp;
 
 class Stock implements IObservador {
     
