@@ -2,13 +2,18 @@ package ObserverApp;
 
 public class ObserverApp {
     public static void main(String[] args) throws Exception {
-        Producto leche = new Producto("Leche", 12);
-        Observador observador = new Observador();
+        Producto leche = new Producto("Leche", 12); // Observado
 
-        leche.addObservador(observador);
+        Stock stock = new Stock(); // Observador
+        JefeBodega hulk = new JefeBodega("Hulk"); // Observador
+        JefeBodega ironman = new JefeBodega("Iron man"); // Observador
+        Proveedor thanos = new Proveedor("Thanos"); // Observador
 
-        System.out.println("Cantidad inicial: "+ leche.getCantidad());
-
-        leche.setCantidad(11);
+        leche.agregarObservador(ironman);
+        leche.agregarObservador(hulk);
+        leche.agregarObservador(thanos);
+        leche.agregarObservador(stock);
+        
+        leche.setCantidadStock(0);
     }
 }
